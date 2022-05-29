@@ -1,0 +1,832 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/material/dropdown.dart', 'packages/flutter/src/widgets/async.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/material/text_field.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart'], (function load__packages__parcial_1_app_movil__Login__Register_page_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__material__dropdown$46dart, packages__flutter__src__widgets__async$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__material__text_field$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const dropdown = packages__flutter__src__material__dropdown$46dart.src__material__dropdown;
+  const async = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_field = packages__flutter__src__material__text_field$46dart.src__material__text_field;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  var Register_page = Object.create(dart.library);
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    DropdownButtonOfString: () => (T.DropdownButtonOfString = dart.constFn(dropdown.DropdownButton$(core.String)))(),
+    DropdownMenuItemOfString: () => (T.DropdownMenuItemOfString = dart.constFn(dropdown.DropdownMenuItem$(core.String)))(),
+    StringToDropdownMenuItemOfString: () => (T.StringToDropdownMenuItemOfString = dart.constFn(dart.fnType(T.DropdownMenuItemOfString(), [core.String])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    ObjectNTovoid: () => (T.ObjectNTovoid = dart.constFn(dart.fnType(dart.void, [T.ObjectN()])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    StringTovoid: () => (T.StringTovoid = dart.constFn(dart.fnType(dart.void, [core.String])))(),
+    BuildContextAndAsyncSnapshotToContainer: () => (T.BuildContextAndAsyncSnapshotToContainer = dart.constFn(dart.fnType(container.Container, [framework.BuildContext, async.AsyncSnapshot])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 11,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 11,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 11,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 9,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 9,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 19,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 19,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 19,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 19,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 30,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], widget_inspector._Location);
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 70,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22], widget_inspector._Location);
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 65,
+        [_Location_line]: 60,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 45,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 58,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], widget_inspector._Location);
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 60,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hint",
+        [_Location_column]: 19,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "items",
+        [_Location_column]: 19,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 19,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 19,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 15,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 42,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 11,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 7,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 30,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 92,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 11,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 11,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "obscureText",
+        [_Location_column]: 11,
+        [_Location_line]: 90,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 11,
+        [_Location_line]: 96,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53, C[54] || CT.C54, C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57], widget_inspector._Location);
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 87,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 9,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61], widget_inspector._Location);
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 85,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.constList([C[64] || CT.C64], widget_inspector._Location);
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[63] || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 83,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 30,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.constList([C[67] || CT.C67], widget_inspector._Location);
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[66] || CT.C66,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 112,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 11,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 11,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "obscureText",
+        [_Location_column]: 11,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 11,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.constList([C[70] || CT.C70, C[71] || CT.C71, C[72] || CT.C72, C[73] || CT.C73, C[74] || CT.C74], widget_inspector._Location);
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[69] || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 107,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 9,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77, C[78] || CT.C78], widget_inspector._Location);
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 105,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.constList([C[81] || CT.C81], widget_inspector._Location);
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[80] || CT.C80,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 103,
+        [_Location_file]: "file:///C:/Users/reyna/OneDrive/Documents/UNIVERSIDAD/OTRO%20SEMESTRE%203/DESARROLLO%20DE%20APLICACIONES%20MOVILES%20(ELECTIVA%203)/Nueva%20carpeta%20(2)/parcial_1_app_movil/lib/Login/Register_page.dart"
+      });
+    }
+  }, false);
+  var C = Array(82).fill(void 0);
+  var I = ["package:parcial_1_app_movil/Login/Register_page.dart"];
+  Register_page.Register_User = class Register_User extends framework.StatefulWidget {
+    createState() {
+      return new Register_page._Register_UserState.new();
+    }
+  };
+  (Register_page.Register_User.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    Register_page.Register_User.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Register_page.Register_User.prototype;
+  dart.addTypeTests(Register_page.Register_User);
+  dart.addTypeCaches(Register_page.Register_User);
+  dart.setMethodSignature(Register_page.Register_User, () => ({
+    __proto__: dart.getMethods(Register_page.Register_User.__proto__),
+    createState: dart.fnType(framework.State$(Register_page.Register_User), [])
+  }));
+  dart.setLibraryUri(Register_page.Register_User, I[0]);
+  var ___Register_UserState__controllerTest = dart.privateName(Register_page, "_#_Register_UserState#_controllerTest");
+  var _items = dart.privateName(Register_page, "_items");
+  var _selectedItem = dart.privateName(Register_page, "_selectedItem");
+  var _controllerTest = dart.privateName(Register_page, "_controllerTest");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _passwordTextFiel = dart.privateName(Register_page, "_passwordTextFiel");
+  var _passwordTextFiel1 = dart.privateName(Register_page, "_passwordTextFiel1");
+  Register_page._Register_UserState = class _Register_UserState extends framework.State$(Register_page.Register_User) {
+    get [_controllerTest]() {
+      let t0;
+      t0 = this[___Register_UserState__controllerTest];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controllerTest")) : t0;
+    }
+    set [_controllerTest](t0) {
+      this[___Register_UserState__controllerTest] = t0;
+    }
+    initState() {
+      this[_controllerTest] = new editable_text.TextEditingController.new();
+      super.initState();
+    }
+    build(context) {
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Registrar usuario", {textAlign: ui.TextAlign.left, style: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 20.0, fontFamily: "cursive", fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), backgroundColor: colors.Colors.red._get(700), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), body: new basic.Center.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([new text.Text.new("Tipo de Usuario", {textAlign: ui.TextAlign.left, style: new text_style.TextStyle.new({color: colors.Colors.black87, fontSize: 20.0, fontFamily: "cursive", fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), new basic.SizedBox.new({width: 20.0, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), new (T.DropdownButtonOfString()).new({hint: new text.Text.new(this[_selectedItem], {$creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), items: this[_items][$map](T.DropdownMenuItemOfString(), dart.fn(item => new (T.DropdownMenuItemOfString()).new({value: item, child: new text.Text.new(item, {$creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), $creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), T.StringToDropdownMenuItemOfString()))[$toList](), onChanged: dart.fn(_value => this.setState(dart.fn(() => {
+                      this[_selectedItem] = core.String.as(_value);
+                    }, T.VoidTovoid())), T.ObjectNTovoid()), onTap: dart.fn(() => {
+                      if (this[_selectedItem] === "Persona") {
+                        this[_passwordTextFiel]();
+                      } else if (this[_selectedItem] === "Restaurante") {
+                      }
+                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27})]), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33})]), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[41] || CT.C41}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
+    }
+    [_passwordTextFiel]() {
+      return new async.StreamBuilder.new({builder: dart.fn((context, snapshot) => new container.Container.new({padding: new edge_insets.EdgeInsets.symmetric({horizontal: 20.0}), child: new text_field.TextField.new({controller: this[_controllerTest], keyboardType: text_input.TextInputType.emailAddress, obscureText: true, decoration: new input_decorator.InputDecoration.new({icon: new icon.Icon.new(icons.Icons.lock, {$creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), hintText: "Contraseña", labelText: "Contraseña"}), onChanged: dart.fn(value => {
+            }, T.StringTovoid()), $creationLocationd_0dea112b090073317d4: C[51] || CT.C51}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), T.BuildContextAndAsyncSnapshotToContainer()), $creationLocationd_0dea112b090073317d4: C[62] || CT.C62});
+    }
+    [_passwordTextFiel1]() {
+      return new async.StreamBuilder.new({builder: dart.fn((context, snapshot) => new container.Container.new({padding: new edge_insets.EdgeInsets.symmetric({horizontal: 20.0}), child: new text_field.TextField.new({controller: this[_controllerTest], keyboardType: text_input.TextInputType.emailAddress, obscureText: true, decoration: new input_decorator.InputDecoration.new({icon: new icon.Icon.new(icons.Icons.lock, {$creationLocationd_0dea112b090073317d4: C[65] || CT.C65}), hintText: "Es restaurante", labelText: "Es restaurante"}), onChanged: dart.fn(value => {
+            }, T.StringTovoid()), $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), $creationLocationd_0dea112b090073317d4: C[75] || CT.C75}), T.BuildContextAndAsyncSnapshotToContainer()), $creationLocationd_0dea112b090073317d4: C[79] || CT.C79});
+    }
+  };
+  (Register_page._Register_UserState.new = function() {
+    this[___Register_UserState__controllerTest] = null;
+    this[_items] = T.JSArrayOfString().of(["Seleccione", "Persona", "Restaurante"]);
+    this[_selectedItem] = "Seleccione";
+    Register_page._Register_UserState.__proto__.new.call(this);
+    ;
+  }).prototype = Register_page._Register_UserState.prototype;
+  dart.addTypeTests(Register_page._Register_UserState);
+  dart.addTypeCaches(Register_page._Register_UserState);
+  dart.setMethodSignature(Register_page._Register_UserState, () => ({
+    __proto__: dart.getMethods(Register_page._Register_UserState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_passwordTextFiel]: dart.fnType(framework.Widget, []),
+    [_passwordTextFiel1]: dart.fnType(framework.Widget, [])
+  }));
+  dart.setGetterSignature(Register_page._Register_UserState, () => ({
+    __proto__: dart.getGetters(Register_page._Register_UserState.__proto__),
+    [_controllerTest]: editable_text.TextEditingController
+  }));
+  dart.setSetterSignature(Register_page._Register_UserState, () => ({
+    __proto__: dart.getSetters(Register_page._Register_UserState.__proto__),
+    [_controllerTest]: editable_text.TextEditingController
+  }));
+  dart.setLibraryUri(Register_page._Register_UserState, I[0]);
+  dart.setFieldSignature(Register_page._Register_UserState, () => ({
+    __proto__: dart.getFields(Register_page._Register_UserState.__proto__),
+    [___Register_UserState__controllerTest]: dart.fieldType(dart.nullable(editable_text.TextEditingController)),
+    [_items]: dart.fieldType(core.List$(core.String)),
+    [_selectedItem]: dart.fieldType(core.String)
+  }));
+  dart.trackLibraries("packages/parcial_1_app_movil/Login/Register_page.dart", {
+    "package:parcial_1_app_movil/Login/Register_page.dart": Register_page
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["Register_page.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAOwC;IAAqB;;;QAHvC;;AAAQ,+DAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;AAOhB;;IAAe;;AAAf;IAAe;;AAIC,MAAzC,wBAAkB;AACD,MAAX;IACR;UAM0B;AACxB,YAAO,oCACG,+BACC,kBACL,iCACqB,0BACd,qCACW,+BACJ,kBACE,uBACW,gGAEL,AAAG,uBAAC,qEAExB,6BACG,yCACgC,yCAC3B,wBACR,sCACuC,yCACnB,wBAChB,kBACE,+BACqB,0BACd,qCACW,iCACJ,kBACE,uBACW,+EAE7B,+BACS,iEAET,4CACQ,kBAAK,wFACJ,AAAO,AAEX,iDAFe,QAAQ,QACjB,+CAAwB,IAAI,SAAS,kBAAK,IAAI,uLAE5C,QAAC,UAAW,cAAS;AACE,sBAAhC,sBAAuB,eAAP,MAAM;oEAEjB;AACL,0BAAI,AAAc,wBAAG;AACA,wBAAnB;4BACK,KAAI,AAAc,wBAAG;;;IAY9C;;AAGE,YAAO,uCACM,SAAc,SAAuB,aACzC,sCACe,kDAAsB,eACnC,0CACO,qCACgB,oDACf,kBACD,+CACJ,kBAAW,wFACP,yBACC,2BAEF,QAAC;;IAIpB;;AAGE,YAAO,uCACM,SAAc,SAAuB,aACzC,sCACe,kDAAsB,eACnC,0CACO,qCACgB,oDACf,kBACD,+CACJ,kBAAW,wFACP,6BACC,+BAEF,QAAC;;IAIpB;;;kDA5G2B;IAQvB,eAAS,wBAAC,cAAc,WAAW;IAChC,sBAAgB;;;EAoGzB","file":"../../../../../../../../../../../packages/parcial_1_app_movil/Login/Register_page.dart.lib.js"}');
+  // Exports:
+  return {
+    Login__Register_page: Register_page
+  };
+}));
+
+//# sourceMappingURL=Register_page.dart.lib.js.map
