@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
-import 'package:parcial_1_app_movil/peticiones/gestionusuarios.dart';
+import 'package:parcial_1_app_movil/peticiones/peticionesrestaurante.dart';
 
 class RegisterRestaurant extends StatefulWidget {
   RegisterRestaurant({Key? key}) : super(key: key);

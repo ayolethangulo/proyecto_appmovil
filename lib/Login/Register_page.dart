@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
+import 'package:parcial_1_app_movil/Login/login_page.dart';
+import 'package:parcial_1_app_movil/peticiones/peticionespersona.dart';
 
 class RegisterUser extends StatefulWidget {
   RegisterUser({Key? key}) : super(key: key);
@@ -9,10 +11,20 @@ class RegisterUser extends StatefulWidget {
 }
 
 class _RegisterUserState extends State<RegisterUser> {
-  late TextEditingController _controlTest;
+  late TextEditingController _controlIdentificacion;
+  late TextEditingController _controlNombre;
+  late TextEditingController _controlApellido;
+  late TextEditingController _controlCelular;
+  late TextEditingController _controlEmail;
+  late TextEditingController _controlEdad;
   @override
   void initState() {
-    _controlTest = TextEditingController();
+    _controlIdentificacion = TextEditingController();
+    _controlNombre = TextEditingController();
+    _controlApellido = TextEditingController();
+    _controlCelular = TextEditingController();
+    _controlEmail = TextEditingController();
+    _controlEdad = TextEditingController();
     super.initState();
   }
 
@@ -47,33 +59,33 @@ class _RegisterUserState extends State<RegisterUser> {
               SizedBox(
                 height: 20,
               ),
-              TextFields(_controlTest, 'Identificacion', 'Identificacion',
-                  Icon(Icons.person)),
+              TextFields(_controlIdentificacion, 'Identificación',
+                  'Identificación', Icon(Icons.person)),
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlTest, 'Nombre', 'Nombre',
+              TextFields(_controlNombre, 'Nombre', 'Nombre',
                   Icon(Icons.text_fields_sharp)),
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlTest, 'Apellido', 'Apellido',
+              TextFields(_controlApellido, 'Apellido', 'Apellido',
                   Icon(Icons.text_fields_sharp)),
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlTest, 'Celular', 'Celular',
+              TextFields(_controlCelular, 'Celular', 'Celular',
                   Icon(Icons.phone_android)),
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlTest, 'Email', 'Correo Electronico',
-                  Icon(Icons.email_sharp)),
+              TextFields(
+                  _controlEmail, 'Email', 'Email', Icon(Icons.email_sharp)),
               SizedBox(
                 height: 15,
               ),
               TextFields(
-                _controlTest,
+                _controlEdad,
                 'Edad',
                 'Edad',
                 Icon(Icons.confirmation_num_rounded),
@@ -82,7 +94,35 @@ class _RegisterUserState extends State<RegisterUser> {
                 height: 25,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  var response = adicionarPersona(
+                      _controlIdentificacion.text,
+                      _controlNombre.text,
+                      _controlApellido.text,
+                      _controlCelular.text,
+                      _controlEmail.text,
+                      _controlEdad.text);
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: Text('Registrar Persona'),
+                            content: Text(response.toString()),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LoginPage()));
+                                },
+                                child: Text(
+                                  'Cancelar',
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              )
+                            ],
+                          ));
+                },
                 child: Container(
                   padding:
                       EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
