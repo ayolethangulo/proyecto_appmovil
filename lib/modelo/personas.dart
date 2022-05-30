@@ -5,6 +5,7 @@ class Personas {
   final String celular;
   final String email;
   final String edad;
+  final String tipoUsuario;
 
   Personas({
     required this.identificacion,
@@ -13,6 +14,7 @@ class Personas {
     required this.celular,
     required this.email,
     required this.edad,
+    required this.tipoUsuario,
   });
 
   factory Personas.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,7 @@ class Personas {
       celular: json['celular'],
       email: json['email'],
       edad: json['edad'],
+      tipoUsuario: json['tipoUsuario'],
     );
   }
 }

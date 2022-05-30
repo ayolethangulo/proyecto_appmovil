@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
+import 'package:parcial_1_app_movil/Login/login_page.dart';
 import 'package:parcial_1_app_movil/peticiones/peticionesrestaurante.dart';
 
 class RegisterRestaurant extends StatefulWidget {
@@ -16,6 +17,7 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
   late TextEditingController _controlTelefono;
   late TextEditingController _controlCelular;
   late TextEditingController _controlCorreo;
+  var tipoUsuario = "Restaurante";
   @override
   void initState() {
     _controlNit = TextEditingController();
@@ -100,8 +102,10 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
                       _controlDireccion.text,
                       _controlTelefono.text,
                       _controlCelular.text,
-                      _controlCorreo.text);
-                  Navigator.of(context).pop();
+                      _controlCorreo.text,
+                      tipoUsuario);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage()));
                 },
                 child: Container(
                   padding:

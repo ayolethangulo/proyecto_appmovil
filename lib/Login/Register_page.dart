@@ -17,6 +17,7 @@ class _RegisterUserState extends State<RegisterUser> {
   late TextEditingController _controlCelular;
   late TextEditingController _controlEmail;
   late TextEditingController _controlEdad;
+  var tipoUsuario = "Persona";
   @override
   void initState() {
     _controlIdentificacion = TextEditingController();
@@ -95,33 +96,16 @@ class _RegisterUserState extends State<RegisterUser> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  var response = adicionarPersona(
+                  adicionarPersona(
                       _controlIdentificacion.text,
                       _controlNombre.text,
                       _controlApellido.text,
                       _controlCelular.text,
                       _controlEmail.text,
-                      _controlEdad.text);
-                  showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                            title: Text('Registrar Persona'),
-                            content: Text(response.toString()),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => LoginPage()));
-                                },
-                                child: Text(
-                                  'Cancelar',
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              )
-                            ],
-                          ));
+                      _controlEdad.text,
+                      tipoUsuario);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage()));
                 },
                 child: Container(
                   padding:

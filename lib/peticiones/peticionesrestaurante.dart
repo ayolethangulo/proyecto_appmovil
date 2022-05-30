@@ -22,7 +22,7 @@ List<Restaurantes> pasaraListas(String responseBody) {
 }
 
 void adicionarRestaurante(String nit, String nombre, String direccion,
-    String telefono, String celular, String email) async {
+    String telefono, String celular, String email, String tipoUsuario) async {
   var url = Uri.parse(
       'https://pruebamovil2022.000webhostapp.com/proyectoapi/add_restaurante.php');
 
@@ -32,7 +32,8 @@ void adicionarRestaurante(String nit, String nombre, String direccion,
     'direccion': direccion,
     'telefono': telefono,
     'celular': celular,
-    'email': email
+    'email': email,
+    'tipoUsuario': tipoUsuario
   });
 }
 

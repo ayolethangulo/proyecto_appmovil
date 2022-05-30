@@ -19,21 +19,20 @@ List<Personas> pasaraListas(String responseBody) {
   return pasar.map<Personas>((json) => Personas.fromJson(json)).toList();
 }
 
-Future<String> adicionarPersona(String identificacion, String nombre,
-    String apellido, String celular, String email, String edad) async {
+void adicionarPersona(String identificacion, String nombre, String apellido,
+    String celular, String email, String edad, String tipoUsuario) async {
   var url = Uri.parse(
       'https://pruebamovil2022.000webhostapp.com/proyectoapi/add_persona.php');
 
-  final response = await http.post(url, body: {
+  await http.post(url, body: {
     'identificacion': identificacion,
     'nombre': nombre,
     'apellido': apellido,
     'celular': celular,
     'email': email,
-    'edad': edad
+    'edad': edad,
+    'tipoUsuario': tipoUsuario
   });
-  // final pasar = json.decode(response.body).cast<Map<String, dynamic>>();
-  return response.body;
 }
 
 void editarPersona(String identificacion, String nombre, String apellido,
