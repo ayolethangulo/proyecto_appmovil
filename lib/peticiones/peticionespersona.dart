@@ -50,11 +50,11 @@ void editarPersona(String identificacion, String nombre, String apellido,
   });
 }
 
-void eliminarPersona(id) async {
+void eliminarPersona(identificacion) async {
   var url = Uri.parse(
       'https://pruebamovil2022.000webhostapp.com/proyectoapi/delete_persona.php');
 
   await http.post(url, body: {
-    'ideliminar': id,
+    'identificacion': identificacion,
   });
 }

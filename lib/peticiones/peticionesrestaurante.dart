@@ -52,11 +52,11 @@ void editarRestaurante(String nit, String nombre, String direccion,
   });
 }
 
-void eliminarRestaurante(id) async {
+void eliminarRestaurante(nit) async {
   var url = Uri.parse(
       'https://pruebamovil2022.000webhostapp.com/proyectoapi/delete_restaurante.php');
 
   await http.post(url, body: {
-    'ideliminar': id,
+    'nit': nit,
   });
 }
