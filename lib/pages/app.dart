@@ -9,9 +9,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Raiting Restaurant',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: LoginPage.id,
       routes: {
         LoginPage.id: (context) => LoginPage(),

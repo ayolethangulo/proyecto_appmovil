@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
-      backgroundColor: Colors.black12,
+      backgroundColor: Colors.white,
     );
   }
 

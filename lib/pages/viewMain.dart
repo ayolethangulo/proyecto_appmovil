@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parcial_1_app_movil/home_pages/Promotions.dart';
 import 'package:parcial_1_app_movil/home_pages/home.dart';
 
 class ViewMain extends StatefulWidget {
@@ -106,7 +107,7 @@ class _ViewMainState extends State<ViewMain> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'inicio'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.star_border_outlined), label: 'calificacion'),
+              icon: Icon(Icons.auto_fix_high_outlined), label: 'Promociones'),
           BottomNavigationBarItem(
               icon: Icon(Icons.add_shopping_cart_outlined), label: 'reservar'),
         ],
@@ -122,7 +123,7 @@ class _ViewMainState extends State<ViewMain> {
 
   final List<Widget> _children = [
     HomePage(),
-    Center(child: Text('calificacion')),
+    PromotionsPage(),
     Center(child: Text('reservas')),
   ];
 }
