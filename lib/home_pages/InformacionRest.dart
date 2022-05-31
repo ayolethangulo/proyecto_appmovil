@@ -130,11 +130,55 @@ class _InformationPageState extends State<InformationPage> {
                                   _controllerComment.clear();
                                 },
                               ),
-                              icon: IconButton(
+                              suffixIcon: IconButton(
                                 onPressed: () {},
                                 icon: Icon(Icons.send),
                               )),
                         ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        child: Row(children: [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('image/perfil.jpg'),
+                            radius: 30,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Excelente Ambiente',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 15,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        ]),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        child: Row(children: [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('image/perfil1.jpg'),
+                            radius: 30,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Inclreibles recetas',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 15,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        ]),
                       ),
                     ]))
               ],

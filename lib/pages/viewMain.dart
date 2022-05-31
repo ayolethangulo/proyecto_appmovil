@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parcial_1_app_movil/home_pages/Promotions.dart';
+import 'package:parcial_1_app_movil/home_pages/bookings.dart';
 import 'package:parcial_1_app_movil/home_pages/home.dart';
 
 class ViewMain extends StatefulWidget {
@@ -124,6 +125,6 @@ class _ViewMainState extends State<ViewMain> {
   final List<Widget> _children = [
     HomePage(),
     PromotionsPage(),
-    Center(child: Text('reservas')),
+    BookingsPage(),
   ];
 }
