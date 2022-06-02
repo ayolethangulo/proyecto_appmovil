@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:parcial_1_app_movil/configurations/configuraciones.dart';
 import 'package:parcial_1_app_movil/home_pages/Promotions.dart';
 import 'package:parcial_1_app_movil/home_pages/bookings.dart';
 import 'package:parcial_1_app_movil/home_pages/home.dart';
+import 'package:parcial_1_app_movil/peticiones/peticionespersona.dart';
 
 class ViewMain extends StatefulWidget {
   ViewMain({Key? key}) : super(key: key);
@@ -55,7 +57,13 @@ class _ViewMainState extends State<ViewMain> {
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.settings),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ConfiguracionUsuarioPage(editarPersona)));
+              },
             ),
             ListTile(
               title: Text(

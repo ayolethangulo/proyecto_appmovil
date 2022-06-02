@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 
 class TextFields extends StatelessWidget {
   final TextEditingController _controller;
@@ -11,11 +10,14 @@ class TextFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15.0),
+      padding: EdgeInsets.all(5.0),
       child: TextField(
         controller: this._controller,
         decoration: InputDecoration(
-            filled: true,
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide(width: 0, color: Colors.black12)),
+            filled: false,
             labelText: this._label,
             hintText: this._hintText,
             suffix: GestureDetector(
