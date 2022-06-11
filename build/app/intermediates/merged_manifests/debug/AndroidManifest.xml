@@ -16,8 +16,8 @@
     <application
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="parcial_1_app_movil" >
+        android:icon="@mipmap/launcher_icon"
+        android:label="Raiting Restaurant" >
         <activity
             android:name="com.example.parcial_1_app_movil.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

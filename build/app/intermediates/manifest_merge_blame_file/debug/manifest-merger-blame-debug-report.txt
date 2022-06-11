@@ -20,10 +20,10 @@
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 17-->[androidx.core:core:1.1.0] C:\Users\ANA\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
-19        android:icon="@mipmap/ic_launcher"
-19-->C:\Users\ANA\Documents\GitHub\proyecto_appmovil\android\app\src\main\AndroidManifest.xml:5:9-43
-20        android:label="parcial_1_app_movil" >
-20-->C:\Users\ANA\Documents\GitHub\proyecto_appmovil\android\app\src\main\AndroidManifest.xml:4:9-44
+19        android:icon="@mipmap/launcher_icon"
+19-->C:\Users\ANA\Documents\GitHub\proyecto_appmovil\android\app\src\main\AndroidManifest.xml:5:9-45
+20        android:label="Raiting Restaurant" >
+20-->C:\Users\ANA\Documents\GitHub\proyecto_appmovil\android\app\src\main\AndroidManifest.xml:4:9-43
 21        <activity
 21-->C:\Users\ANA\Documents\GitHub\proyecto_appmovil\android\app\src\main\AndroidManifest.xml:6:9-34:20
 22            android:name="com.example.parcial_1_app_movil.MainActivity"
