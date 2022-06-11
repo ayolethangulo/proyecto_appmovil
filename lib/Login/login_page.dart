@@ -5,6 +5,7 @@ import 'package:parcial_1_app_movil/Login/Register_restaurant.dart';
 import 'package:parcial_1_app_movil/pages/viewMain.dart';
 import 'package:parcial_1_app_movil/peticiones/peticionesuser.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   static String id = 'login_page';
@@ -15,15 +16,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  late TextEditingController controladorcorreo;
-  late TextEditingController controladorcontra;
+  TextEditingController controladorcorreo = TextEditingController();
+  TextEditingController controladorcontra = TextEditingController();
+  var usuario;
+  var contrasena;
 
   @override
   void initState() {
-    controladorcorreo = TextEditingController();
-    controladorcontra = TextEditingController();
-
     super.initState();
+    consultarusuario();
   }
 
   @override
@@ -276,6 +277,7 @@ class _LoginPageState extends State<LoginPage> {
                 .then((response) {
               print(response.length);
               if (response.length == 1) {
+                guardarusuario(controladorcorreo.text, controladorcontra.text);
                 Get.to(() => ViewMain());
               } else {
                 Get.snackbar(
@@ -290,5 +292,20 @@ class _LoginPageState extends State<LoginPage> {
         },
       );
     });
+  }
+
+  consultarusuario() async {
+    Future<SharedPreferences> _localuser = SharedPreferences.getInstance();
+    final SharedPreferences localuser = await _localuser;
+    setState(() {
+      usuario = localuser.getString('email');
+      contrasena = localuser.getString('password');
+    });
+    if (usuario != '') {
+      if (usuario != null) {
+        controladorcorreo = TextEditingController(text: usuario);
+        controladorcontra = TextEditingController(text: contrasena);
+      }
+    }
   }
 }

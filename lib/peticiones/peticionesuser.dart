@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:parcial_1_app_movil/modelo/usuarios.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void validarUsuario(String email, String password) async {
   var url = Uri.parse(
@@ -31,4 +32,13 @@ List<Usuarios> pasaraListas2(String responseBody) {
   final pasar = json.decode(responseBody).cast<Map<String, dynamic>>();
 
   return pasar.map<Usuarios>((json) => Usuarios.fromJson(json)).toList();
+}
+
+Future<void> guardarusuario(email, pass) async {
+  Future<SharedPreferences> _localuser = SharedPreferences.getInstance();
+  final SharedPreferences localuser = await _localuser;
+  localuser.setString('email', email);
+  localuser.setString('password', pass);
+  print(localuser.getString('email'));
+  print(localuser.getString('password'));
 }
