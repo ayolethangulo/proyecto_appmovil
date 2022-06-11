@@ -70,12 +70,12 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlDireccion, 'Direccion', 'Dirección',
+              TextFields(_controlDireccion, 'Dirección', 'Dirección',
                   Icon(Icons.directions)),
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlTelefono, 'Telefono', 'Telefono de contacto',
+              TextFields(_controlTelefono, 'Teléfono', 'Teléfono de contacto',
                   Icon(Icons.phone)),
               SizedBox(
                 height: 15,
@@ -88,7 +88,7 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
               TextFields(
                 _controlCorreo,
                 'Email',
-                'Correo electronico',
+                'Correo electrónico',
                 Icon(Icons.email_sharp),
               ),
               SizedBox(

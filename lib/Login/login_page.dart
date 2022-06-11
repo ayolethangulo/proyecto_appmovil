@@ -138,10 +138,6 @@ class _LoginPageState extends State<LoginPage> {
                                 )
                               ],
                             ));
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => Register_User()));
                   },
                   child: Text(
                     'Registrate',
@@ -172,8 +168,8 @@ class _LoginPageState extends State<LoginPage> {
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             icon: Icon(Icons.email),
-            hintText: 'ejemplo@parcial.com',
-            labelText: 'Correo Electronico',
+            hintText: 'ejemplo@gmail.com',
+            labelText: 'Correo Electrónico',
           ),
           onChanged: (value) {},
         ),
@@ -238,7 +234,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
           child: Text(
-            'Iniciar Sesion',
+            'Iniciar Sesión',
             style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
           ),
         ),
@@ -282,7 +278,7 @@ class _LoginPageState extends State<LoginPage> {
               } else {
                 Get.snackbar(
                   "Login",
-                  'Datos Invalidos',
+                  'Datos Inválidos',
                   icon: Icon(Icons.person, color: Colors.red),
                   snackPosition: SnackPosition.BOTTOM,
                 );
