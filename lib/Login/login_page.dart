@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               textAlign: TextAlign.left,
               style: TextStyle(
                   color: Colors.black87,
-                  fontSize: 30,
+                  fontSize: 40,
                   fontFamily: 'cursive',
                   fontWeight: FontWeight.bold),
             ),
@@ -54,10 +54,10 @@ class _LoginPageState extends State<LoginPage> {
                     height: 120,
                   )),
             ),
-            SizedBox(
-              height: 15.0,
-            ),
-            _comboRoles(),
+            // SizedBox(
+            //   height: 15.0,
+            // ),
+            // _comboRoles(),
             SizedBox(
               height: 15.0,
             ),
@@ -89,33 +89,42 @@ class _LoginPageState extends State<LoginPage> {
                         context: context,
                         builder: (context) => AlertDialog(
                               title: Text('TIPO DE USUARIO'),
-                              content: Text('Restaurante'),
                               actions: [
-                                TextButton(
-                                  onPressed: () {
+                                ListTile(
+                                  title: Text(
+                                    'Restaurante',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                  trailing: Icon(Icons.home_work_outlined),
+                                  onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
                                                 RegisterRestaurant()));
                                   },
-                                  child: Text(
-                                    'Restaurante',
-                                    style: TextStyle(color: Colors.blue[900]),
-                                  ),
                                 ),
-                                TextButton(
-                                  onPressed: () {
+                                ListTile(
+                                  title: Text(
+                                    'Persona',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                  trailing: Icon(Icons.person_add),
+                                  onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
                                                 RegisterUser()));
                                   },
-                                  child: Text(
-                                    'Persona',
-                                    style: TextStyle(color: Colors.blue[900]),
-                                  ),
                                 ),
                                 TextButton(
                                   onPressed: () {
@@ -171,28 +180,28 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  var _items = ['Seleccione', 'Persona', 'Restaurante'];
-  String _selectedItem = 'Seleccione';
-  Widget _comboRoles() {
-    return Center(
-        child: SizedBox(
-      width: 260,
-      child: DropdownButtonFormField(
-        hint: Text(_selectedItem),
-        items: _items.map((String item) {
-          return DropdownMenuItem(value: item, child: Text(item));
-        }).toList(),
-        onChanged: (_value) => setState(() {
-          _selectedItem = _value as String;
-        }),
-        decoration: InputDecoration(
-            // prefix: Icon(Icons.person),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(width: 1, color: Colors.blue))),
-      ),
-    ));
-  }
+  // var _items = ['Seleccione', 'Persona', 'Restaurante'];
+  // String _selectedItem = 'Seleccione';
+  // Widget _comboRoles() {
+  //   return Center(
+  //       child: SizedBox(
+  //     width: 260,
+  //     child: DropdownButtonFormField(
+  //       hint: Text(_selectedItem),
+  //       items: _items.map((String item) {
+  //         return DropdownMenuItem(value: item, child: Text(item));
+  //       }).toList(),
+  //       onChanged: (_value) => setState(() {
+  //         _selectedItem = _value as String;
+  //       }),
+  //       decoration: InputDecoration(
+  //           // prefix: Icon(Icons.person),
+  //           enabledBorder: OutlineInputBorder(
+  //               borderRadius: BorderRadius.circular(6),
+  //               borderSide: BorderSide(width: 1, color: Colors.blue))),
+  //     ),
+  //   ));
+  // }
 
   Widget _passwordTextFiel() {
     return StreamBuilder(
