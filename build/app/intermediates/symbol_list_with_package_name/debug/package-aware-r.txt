@@ -1,4 +1,4 @@
-com.example.parcial_1_app_movil
+com.raitingRestaurant.proyecto_app_movil
 attr alpha
 attr font
 attr fontProviderAuthority
@@ -131,6 +131,13 @@ mipmap ic_launcher
 mipmap launcher_icon
 mipmap logo
 mipmap rest
+string default_web_client_id
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
+string project_id
 string status_bar_notification_info_overflow
 style LaunchTheme
 style NormalTheme

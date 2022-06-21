@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.parcial_1_app_movil"
+    package="com.raitingRestaurant.proyecto_app_movil"
     android:versionCode="1"
     android:versionName="1.0.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="30" />
+        android:minSdkVersion="21"
+        android:targetSdkVersion="31" />
     <!--
          Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
@@ -19,7 +19,7 @@
         android:icon="@mipmap/launcher_icon"
         android:label="Raiting Restaurant" >
         <activity
-            android:name="com.example.parcial_1_app_movil.MainActivity"
+            android:name="com.raitingRestaurant.proyecto_app_movil.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"

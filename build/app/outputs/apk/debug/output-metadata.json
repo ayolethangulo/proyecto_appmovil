@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.parcial_1_app_movil",
+  "applicationId": "com.raitingRestaurant.proyecto_app_movil",
   "variantName": "processDebugResources",
   "elements": [
     {
