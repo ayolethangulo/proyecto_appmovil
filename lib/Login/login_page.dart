@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:parcial_1_app_movil/Controller/connectivity.dart';
+import 'package:parcial_1_app_movil/Controller/controllerAuthPersona.dart';
 import 'package:parcial_1_app_movil/Login/Register_page.dart';
 import 'package:parcial_1_app_movil/Login/Register_restaurant.dart';
+import 'package:parcial_1_app_movil/Login/TextFields.dart';
 import 'package:parcial_1_app_movil/pages/viewMain.dart';
 import 'package:parcial_1_app_movil/peticiones/peticionesuser.dart';
 import 'package:http/http.dart' as http;
@@ -18,13 +21,44 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController controladorcorreo = TextEditingController();
   TextEditingController controladorcontra = TextEditingController();
+
+  Controllerauth controluser = Get.find();
+  late ConnectivityController connectivityController;
+
   var usuario;
   var contrasena;
 
   @override
   void initState() {
     super.initState();
+    connectivityController = Get.find<ConnectivityController>();
+
     consultarusuario();
+  }
+
+  _inicio(theEmail, thePassword) async {
+    print('_login $theEmail $thePassword');
+    try {
+      await controluser.ingresarEmail(theEmail, thePassword);
+      if (controluser.emailf != 'Sin Registro') {
+        Get.to(() => ViewMain());
+      } else {
+        Get.snackbar(
+          "Login",
+          'Ingrese un Email Valido',
+          icon: Icon(Icons.person, color: Colors.red),
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
+    } catch (err) {
+      print(err.toString());
+      Get.snackbar(
+        "Login",
+        err.toString(),
+        icon: Icon(Icons.person, color: Colors.red),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
 
   @override
@@ -66,7 +100,8 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: 15.0,
             ),
-            _passwordTextFiel(),
+            PasswordTextField(controladorcontra, 'Ingrese una contraseña',
+                'Contraseña', Icon(Icons.lock)),
             SizedBox(
               height: 20.0,
             ),
@@ -200,26 +235,6 @@ class _LoginPageState extends State<LoginPage> {
   //   ));
   // }
 
-  Widget _passwordTextFiel() {
-    return StreamBuilder(
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-      return Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: TextField(
-          controller: controladorcontra,
-          keyboardType: TextInputType.emailAddress,
-          obscureText: true,
-          decoration: InputDecoration(
-            icon: Icon(Icons.lock),
-            hintText: 'Contraseña',
-            labelText: 'Contraseña',
-          ),
-          onChanged: (value) {},
-        ),
-      );
-    });
-  }
-
   Widget _bottonLogin() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -268,22 +283,30 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ));
           } else {
-            validarUsuarios(http.Client(), controladorcorreo.text,
-                    controladorcontra.text)
-                .then((response) {
-              print(response.length);
-              if (response.length == 1) {
-                guardarusuario(controladorcorreo.text, controladorcontra.text);
-                Get.to(() => ViewMain());
-              } else {
-                Get.snackbar(
-                  "Login",
-                  'Datos Inválidos',
-                  icon: Icon(Icons.person, color: Colors.red),
-                  snackPosition: SnackPosition.BOTTOM,
-                );
-              }
-            });
+            if (connectivityController.connected) {
+              _inicio(controladorcorreo.text, controladorcontra.text);
+            } else {
+              GetSnackBar(
+                title: 'No esta conectado a un Red',
+                duration: Duration(seconds: 5),
+              );
+            }
+            // validarUsuarios(http.Client(), controladorcorreo.text,
+            //         controladorcontra.text)
+            //     .then((response) {
+            //   print(response.length);
+            //   if (response.length == 1) {
+            //     guardarusuario(controladorcorreo.text, controladorcontra.text);
+            //     Get.to(() => ViewMain());
+            //   } else {
+            //     Get.snackbar(
+            //       "Login",
+            //       'Datos Inválidos',
+            //       icon: Icon(Icons.person, color: Colors.red),
+            //       snackPosition: SnackPosition.BOTTOM,
+            //     );
+            //   }
+            // });
           }
         },
       );
