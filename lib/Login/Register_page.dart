@@ -239,7 +239,7 @@ class _RegisterUserState extends State<RegisterUser> {
                       };
                       PeticionesPersona.crearPersona(persona, _image);
                     } else {
-                      showDialog(
+                      showModalBottomSheet(
                           context: context,
                           builder: (context) => AlertDialog(
                                 content: Center(
