@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:parcial_1_app_movil/Login/TextFields.dart';
 
 class InformationPage extends StatefulWidget {
   final String restaurante, descripcion;
@@ -66,7 +66,7 @@ class _InformationPageState extends State<InformationPage> {
                 SizedBox(
                   height: 10,
                 ),
-                _Calificacion(widget.calificacion),
+                _calificacion(widget.calificacion),
                 SizedBox(
                   height: 20,
                 ),
@@ -214,7 +214,7 @@ class _InformationPageState extends State<InformationPage> {
     );
   }
 
-  _Calificacion(double calificac) {
+  _calificacion(double calificac) {
     return RatingBar.builder(
       itemCount: 5,
       initialRating: calificac,

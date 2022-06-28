@@ -44,10 +44,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  List<String> _caliPollo = [
+  /* List<String> _caliPollo = [
     'https://images-gmi-pmc.edge-generalmills.com/f5a517df-12c8-4d55-aa70-c882d99122e0.jpg',
     'https://images-gmi-pmc.edge-generalmills.com/f1c75fdc-b10d-4b92-9c60-31d49afaa31f.jpg'
-  ];
+  ];*/
   Widget _publication(String nombreRestaurante, String urlImagen,
       double calificacion, String descripcion) {
     return ListTile(

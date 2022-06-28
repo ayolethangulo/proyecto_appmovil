@@ -75,13 +75,13 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlTelefono, 'Teléfono', 'Teléfono de contacto',
-                  Icon(Icons.phone)),
+              TextFieldsNumbers(_controlTelefono, 'Teléfono',
+                  'Teléfono de contacto', Icon(Icons.phone)),
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlCelular, 'Celular', 'Celular de contacto',
-                  Icon(Icons.phone_android)),
+              TextFieldsNumbers(_controlCelular, 'Celular',
+                  'Celular de contacto', Icon(Icons.phone_android)),
               SizedBox(
                 height: 15,
               ),

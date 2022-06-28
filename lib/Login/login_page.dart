@@ -6,8 +6,6 @@ import 'package:parcial_1_app_movil/Login/Register_page.dart';
 import 'package:parcial_1_app_movil/Login/Register_restaurant.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
 import 'package:parcial_1_app_movil/pages/viewMain.dart';
-import 'package:parcial_1_app_movil/peticiones/peticionesuser.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -32,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
     connectivityController = Get.find<ConnectivityController>();
-
     consultarusuario();
   }
 
@@ -45,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
       } else {
         Get.snackbar(
           "Login",
-          'Ingrese un Email Valido',
+          'Ingrese un Email Válido',
           icon: Icon(Icons.person, color: Colors.red),
           snackPosition: SnackPosition.BOTTOM,
         );

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:parcial_1_app_movil/Login/login_page.dart';
-import 'package:parcial_1_app_movil/home_pages/home.dart';
 
 class PromotionsPage extends StatefulWidget {
   PromotionsPage({Key? key}) : super(key: key);
 
   @override
-  State<PromotionsPage> createState() => _PromotionsPageState();
+  State<PromotionsPage> createState() => _promotionsPageState();
 }
 
-class _PromotionsPageState extends State<PromotionsPage> {
+class _promotionsPageState extends State<PromotionsPage> {
   List<String> imagenes = [
     'https://www.alqueria.com.co/sites/default/files/styles/1327_612/public/hamburguesa-con-amigos-y-salsa-de-champinones_0.jpg?h=2dfa7a18&itok=hLxehdIa',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnh407duvp2focHjxaI2WP0MNVzS4eHjf6RRckn1pN8KxUydnQYxXnXfKU5GBM1jIkIhs&usqp=CAU',
@@ -34,9 +32,9 @@ class _PromotionsPageState extends State<PromotionsPage> {
           crossAxisSpacing: 10,
           padding: EdgeInsets.all(15),
           children: <Widget>[
-            _Promotion('Hamburguesa Salvaja', '5 % Dto.', '+5 Calificaciones',
+            _promotion('Hamburguesa Salvaja', '5 % Dto.', '+5 Calificaciones',
                 imagenes),
-            _Promotion(
+            _promotion(
                 'Hamburguesa gourmet', '5 % Dto.', '+3 compras', imagenes),
           ],
         ),
@@ -44,7 +42,7 @@ class _PromotionsPageState extends State<PromotionsPage> {
     );
   }
 
-  Widget _Promotion(String nombreProducto, String beneficio, String condicion,
+  Widget _promotion(String nombreProducto, String beneficio, String condicion,
       List<String> imagen) {
     return ListTile(
       title: _swiperImages(imagen),
