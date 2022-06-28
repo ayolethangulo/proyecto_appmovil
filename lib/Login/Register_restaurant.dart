@@ -116,7 +116,7 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
               SizedBox(
                 height: 20,
               ),
-              TextFields(_controlNit, 'Nit', 'Nit del restaurante',
+              TextFieldsNumbers(_controlNit, 'Nit', 'Nit del restaurante',
                   Icon(Icons.home_work_outlined)),
               SizedBox(
                 height: 15,

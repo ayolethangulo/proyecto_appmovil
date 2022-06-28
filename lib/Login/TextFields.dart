@@ -30,12 +30,19 @@ class TextFields extends StatelessWidget {
   }
 }
 
-class PasswordTextField extends StatelessWidget {
+class PasswordTextField extends StatefulWidget {
   final TextEditingController _controller;
   final String _label, _hintText;
   final Icon _icon;
 
   PasswordTextField(this._controller, this._label, this._hintText, this._icon);
+
+  @override
+  State<PasswordTextField> createState() => _PasswordTextFieldState();
+}
+
+class _PasswordTextFieldState extends State<PasswordTextField> {
+  bool _ocultar = true;
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +51,28 @@ class PasswordTextField extends StatelessWidget {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
-          controller: _controller,
+          controller: widget._controller,
           keyboardType: TextInputType.emailAddress,
           obscureText: true,
           decoration: InputDecoration(
-            icon: _icon,
-            hintText: _hintText,
-            labelText: _label,
-          ),
+              icon: widget._icon,
+              hintText: widget._hintText,
+              labelText: widget._label,
+              suffixIcon: IconButton(
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                onPressed: () {
+                  setState(() {
+                    _ocultar = !_ocultar;
+                  });
+                },
+                icon: Icon(
+                  _ocultar ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.grey,
+                ),
+              )),
           onChanged: (value) {},
         ),
       );
