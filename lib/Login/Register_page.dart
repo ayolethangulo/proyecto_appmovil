@@ -57,7 +57,7 @@ class _RegisterUserState extends State<RegisterUser> {
       } else {
         Get.snackbar(
           "Login",
-          'Ingrese un Email Valido',
+          'Ingrese un Email Válido',
           icon: Icon(Icons.person, color: Colors.red),
           snackPosition: SnackPosition.BOTTOM,
         );
@@ -151,7 +151,7 @@ class _RegisterUserState extends State<RegisterUser> {
               SizedBox(
                 height: 20,
               ),
-              TextFields(_controlIdentificacion, 'Identificación',
+              TextFieldsNumbers(_controlIdentificacion, 'Identificación',
                   'Identificación', Icon(Icons.person)),
               SizedBox(
                 height: 15,
@@ -166,7 +166,7 @@ class _RegisterUserState extends State<RegisterUser> {
               SizedBox(
                 height: 15,
               ),
-              TextFields(
+              TextFieldsNumbers(
                 _controlEdad,
                 'Edad',
                 'Edad',
@@ -175,7 +175,7 @@ class _RegisterUserState extends State<RegisterUser> {
               SizedBox(
                 height: 15,
               ),
-              TextFields(_controlCelular, 'Celular', 'Celular',
+              TextFieldsNumbers(_controlCelular, 'Celular', 'Celular',
                   Icon(Icons.phone_android)),
               SizedBox(
                 height: 15,

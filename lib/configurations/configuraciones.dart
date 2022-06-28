@@ -1,17 +1,14 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
-import 'package:parcial_1_app_movil/Login/login_page.dart';
 import 'package:parcial_1_app_movil/modelo/personas.dart';
 import 'package:parcial_1_app_movil/pages/viewMain.dart';
 import 'package:parcial_1_app_movil/peticiones/peticionespersona.dart';
 
 class ConfiguracionUsuarioPage extends StatefulWidget {
-  
   ConfiguracionUsuarioPage(void editarPersona, {Key? key}) : super(key: key);
   @override
-  State<ConfiguracionUsuarioPage> createState() => _ConfiguracionUsuarioPageState();
+  State<ConfiguracionUsuarioPage> createState() =>
+      _ConfiguracionUsuarioPageState();
 }
 
 class _ConfiguracionUsuarioPageState extends State<ConfiguracionUsuarioPage> {
@@ -22,10 +19,9 @@ class _ConfiguracionUsuarioPageState extends State<ConfiguracionUsuarioPage> {
   late TextEditingController _controlCelular;
   late TextEditingController _controlEmail;
   late TextEditingController _controlEdad;
-  
+
   @override
   void initState() {
-       
     _controlIdentificacion = TextEditingController();
     _controlNombre = TextEditingController();
     _controlApellido = TextEditingController();
@@ -65,21 +61,16 @@ class _ConfiguracionUsuarioPageState extends State<ConfiguracionUsuarioPage> {
               ),
               SizedBox(
                 height: 20,
-                
               ),
               TextFields(_controlIdentificacion, 'Identificación',
-                  'Identificación', Icon(Icons.person)
-                  ),
-                  
+                  'Identificación', Icon(Icons.person)),
               SizedBox(
                 height: 15,
               ),
               TextFields(_controlNombre, 'Nombre', 'Nombre',
-                  Icon(Icons.text_fields_sharp)
-                  ),
+                  Icon(Icons.text_fields_sharp)),
               SizedBox(
                 height: 15,
-                
               ),
               TextFields(_controlApellido, 'Apellido', 'Apellido',
                   Icon(Icons.text_fields_sharp)),
@@ -108,13 +99,13 @@ class _ConfiguracionUsuarioPageState extends State<ConfiguracionUsuarioPage> {
               ElevatedButton(
                 onPressed: () {
                   editarPersona(
-                      _controlIdentificacion.text,
-                      _controlNombre.text,
-                      _controlApellido.text,
-                      _controlCelular.text,
-                      _controlEmail.text,
-                      _controlEdad.text,
-                      );
+                    _controlIdentificacion.text,
+                    _controlNombre.text,
+                    _controlApellido.text,
+                    _controlCelular.text,
+                    _controlEmail.text,
+                    _controlEdad.text,
+                  );
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ViewMain()));
                 },

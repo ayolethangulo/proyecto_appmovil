@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
 
 class BookingsPage extends StatefulWidget {
@@ -10,15 +9,15 @@ class BookingsPage extends StatefulWidget {
 }
 
 class _BookingsPageState extends State<BookingsPage> {
-  late TextEditingController _ControllerMesa;
-  late TextEditingController _ControllerPersonas;
-  late TextEditingController _ControllerFecha;
+  late TextEditingController _controllerMesa;
+  late TextEditingController _controllerPersonas;
+  late TextEditingController _controllerFecha;
 
   @override
   void initState() {
-    _ControllerMesa = TextEditingController();
-    _ControllerPersonas = TextEditingController();
-    _ControllerFecha = TextEditingController();
+    _controllerMesa = TextEditingController();
+    _controllerPersonas = TextEditingController();
+    _controllerFecha = TextEditingController();
     super.initState();
   }
 
@@ -66,17 +65,17 @@ class _BookingsPageState extends State<BookingsPage> {
                   ),
                 ),
               )),
-              TextFields(_ControllerMesa, 'Numero de mesa',
+              TextFields(_controllerMesa, 'Numero de mesa',
                   'Ingresar numero de la mesa', Icon(Icons.tapas_outlined)),
               SizedBox(
                 height: 5,
               ),
-              TextFields(_ControllerPersonas, 'Numero de personas',
+              TextFields(_controllerPersonas, 'Numero de personas',
                   'Ingresar numero de la personas', Icon(Icons.person)),
               SizedBox(
                 height: 5,
               ),
-              _InputDate(context),
+              _inputDate(context),
               SizedBox(
                 height: 110,
               ),
@@ -106,10 +105,10 @@ class _BookingsPageState extends State<BookingsPage> {
     );
   }
 
-  Widget _InputDate(BuildContext _context) {
+  Widget _inputDate(BuildContext _context) {
     return TextField(
       enableInteractiveSelection: false,
-      controller: _ControllerFecha,
+      controller: _controllerFecha,
       decoration: InputDecoration(
           hintText: 'Fecha de reservación',
           labelText: 'Seleccionar fecha para reserva',
@@ -119,25 +118,25 @@ class _BookingsPageState extends State<BookingsPage> {
           icon: Icon(Icons.perm_contact_calendar)),
       onTap: () {
         FocusScope.of(_context).requestFocus(new FocusNode());
-        _SelectedDate(context);
+        _selectedDate(context);
       },
     );
   }
 
-  _SelectedDate(BuildContext _context) async {
-    DateTime FechaActual;
-    int edadd;
-    int valor = 1;
+  _selectedDate(BuildContext _context) async {
+    //DateTime fechaActual;
+    //int edadd;
+    //int valor = 1;
     DateTime? picke = await showDatePicker(
         context: _context,
         initialDate: DateTime.now(),
         firstDate: DateTime(1700),
         lastDate: DateTime(2032));
 
-    FechaActual = DateTime.now();
+    //fechaActual = DateTime.now();
     if (picke != null) {
       setState(() {
-        _ControllerFecha.text = picke.toString().substring(0, 10);
+        _controllerFecha.text = picke.toString().substring(0, 10);
       });
     }
   }

@@ -62,10 +62,10 @@ class Controllerauth extends GetxController {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('Correo no encontrado');
-        return Future.error('El usuario no existe');
+        return Future.error('Usuario no encontrado');
       } else if (e.code == 'wrong-password') {
-        print('Contraseña incorrecta.');
-        return Future.error('Contraseña incorrecta');
+        print('Password incorrecto');
+        return Future.error('Password incorrecto');
       }
     }
   }
