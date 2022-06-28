@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/raitingRestaurant/proyecto_app_movil/BuildConfig.java
- com.raitingRestaurant.proyecto_app_movil.BuildConfig
