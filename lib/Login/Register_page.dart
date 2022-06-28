@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -82,7 +83,6 @@ class _RegisterUserState extends State<RegisterUser> {
 
     setState(() {
       _image = (image != null) ? File(image.path) : null;
-      //_image = File(image!.path);
     });
   }
 
@@ -92,7 +92,6 @@ class _RegisterUserState extends State<RegisterUser> {
 
     setState(() {
       _image = (image != null) ? File(image.path) : null;
-      // _image = File(image!.path);
     });
   }
 
@@ -104,10 +103,7 @@ class _RegisterUserState extends State<RegisterUser> {
           'Nuevo Usuario',
           textAlign: TextAlign.left,
           style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontFamily: 'cursive',
-              fontWeight: FontWeight.bold),
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.red[700],
       ),
@@ -206,15 +202,49 @@ class _RegisterUserState extends State<RegisterUser> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (_controlApellido.text.isNotEmpty ||
-                      _controlCelular.text.isNotEmpty ||
+                  if (_controlApellido.text.isEmpty ||
+                      _controlCelular.text.isEmpty ||
                       _controlConfContra.text.isEmpty ||
-                      _controlDireccion.text.isNotEmpty ||
-                      _controlEdad.text.isNotEmpty ||
-                      _controlEmail.text.isNotEmpty ||
-                      _controlIdentificacion.text.isNotEmpty ||
-                      _controlNombre.text.isNotEmpty ||
-                      _controlcontrasena.text.isNotEmpty) {
+                      _controlDireccion.text.isEmpty ||
+                      _controlEdad.text.isEmpty ||
+                      _controlEmail.text.isEmpty ||
+                      _controlIdentificacion.text.isEmpty ||
+                      _controlNombre.text.isEmpty ||
+                      _controlcontrasena.text.isEmpty) {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text('Error...',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle()),
+                              actions: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.error_outlined,
+                                      color: Colors.red,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Center(
+                                        child: Text(
+                                      'Todos los campos son obligatorios',
+                                      style: TextStyle(color: Colors.red),
+                                    )),
+                                  ],
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text(
+                                    'Aceptar',
+                                  ),
+                                )
+                              ],
+                            ));
+                  } else {
                     if (_controlcontrasena.text == _controlConfContra.text) {
                       //verifica la conexion a la red y/o crea el usuario
                       if (connectivityController.connected) {
@@ -237,62 +267,27 @@ class _RegisterUserState extends State<RegisterUser> {
                         'contrasena': _controlcontrasena.text,
                         'foto': '',
                       };
-                      PeticionesPersona.crearPersona(persona, _image);
+                      PeticionesPersona.crearPersona(persona, _image,
+                          'identificacion', 'Personas', 'perfilPersonas');
                     } else {
-                      showModalBottomSheet(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                content: Center(
-                                    child: Text(
-                                  'Las contraseñas no coinciden',
-                                  style: TextStyle(color: Colors.red),
-                                )),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text(
-                                      'ok',
-                                      style: TextStyle(
-                                          fontFamily: 'cursive',
-                                          color: Colors.blue[900],
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          decoration: TextDecoration.underline),
-                                    ),
-                                  )
-                                ],
-                              ));
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: const Text(
+                          'Las contraseñas no coinciden!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
+                        backgroundColor: Colors.red[100],
+                        elevation: 20,
+                        action: SnackBarAction(
+                          label: 'Reingresar',
+                          onPressed: () {
+                            _controlcontrasena.clear();
+                            _controlConfContra.clear();
+                          },
+                        ),
+                      ));
                     }
-                  } else {
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                              content: Center(
-                                  child: Text(
-                                'Todos los campos son obligatorios',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              )),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text(
-                                    'ok',
-                                    style: TextStyle(
-                                        fontFamily: 'cursive',
-                                        color: Colors.blue[900],
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        decoration: TextDecoration.underline),
-                                  ),
-                                )
-                              ],
-                            ));
                   }
                 },
                 child: Container(

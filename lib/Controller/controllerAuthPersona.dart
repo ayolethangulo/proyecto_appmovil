@@ -34,11 +34,11 @@ class Controllerauth extends GetxController {
       // return Future.value(true);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        return Future.error('The password provided is too weak.');
+        return Future.error('La contraseña proporcionada es demasiado débil.');
       } else if (e.code == 'email-already-in-use') {
         print('Correo ya Existe');
 
-        return Future.error('The account already exists for that email.');
+        return Future.error('La cuenta ya existe para ese correo electrónico.');
       }
     } catch (e) {
       print(e);
@@ -62,10 +62,10 @@ class Controllerauth extends GetxController {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('Correo no encontrado');
-        return Future.error('user-not-found');
+        return Future.error('El usuario no existe');
       } else if (e.code == 'wrong-password') {
-        print('Password incorrecto');
-        return Future.error('wrong-password');
+        print('Contraseña incorrecta.');
+        return Future.error('Contraseña incorrecta');
       }
     }
   }

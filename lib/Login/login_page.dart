@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 Text(
                   '¿Nuevo en Raiting Restaurant?',
-                  style: TextStyle(fontFamily: 'cursive'),
+                  style: TextStyle(),
                 ),
                 SizedBox(
                   width: 5.0,

@@ -10,29 +10,33 @@ class PeticionesPersona {
   static final fs.FirebaseStorage storage = fs.FirebaseStorage.instance;
   static final FirebaseFirestore baseDatos = FirebaseFirestore.instance;
 
-  static Future<void> crearPersona(Map<String, dynamic> persona, foto) async {
+  static Future<void> crearPersona(Map<String, dynamic> persona, foto,
+      String identificador, nombrecoleccion, nombrecarpetaFotos) async {
     print(persona['foto']);
 
     var url = '';
     if (foto != null)
-      url = await PeticionesPersona._loadPhoto(foto, persona['id_user']);
+      url = await PeticionesPersona._loadPhoto(
+          foto, persona[identificador], nombrecarpetaFotos);
     print(url);
 
     persona['foto'] = url.toString();
     await baseDatos
-        .collection('Personas')
-        .doc(persona['id_user'])
+        .collection(nombrecoleccion)
+        .doc(persona[identificador])
         .set(persona)
         .catchError((e) {
       print(e);
     });
   }
 
-  static Future<dynamic> _loadPhoto(var foto, var idFoto) async {
+  static Future<dynamic> _loadPhoto(
+      var foto, var idFoto, var carpetaImage) async {
     final fs.Reference storageRef =
-        fs.FirebaseStorage.instance.ref().child("perfilPersonas");
+        fs.FirebaseStorage.instance.ref().child(carpetaImage);
 
-    fs.TaskSnapshot taskSnapshot = await storageRef.child(idFoto).putFile(foto);
+    fs.TaskSnapshot taskSnapshot;
+    taskSnapshot = await storageRef.child(idFoto).putFile(foto);
 
     var url = await taskSnapshot.ref.getDownloadURL();
     print('URL: ' + url.toString());
