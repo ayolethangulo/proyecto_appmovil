@@ -53,7 +53,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         child: TextField(
           controller: widget._controller,
           keyboardType: TextInputType.emailAddress,
-          obscureText: true,
+          obscureText: _ocultar,
           decoration: InputDecoration(
               icon: widget._icon,
               hintText: widget._hintText,
@@ -63,15 +63,15 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
+                icon: Icon(
+                  _ocultar ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.grey,
+                ),
                 onPressed: () {
                   setState(() {
                     _ocultar = !_ocultar;
                   });
                 },
-                icon: Icon(
-                  _ocultar ? Icons.visibility_off : Icons.visibility,
-                  color: Colors.grey,
-                ),
               )),
           onChanged: (value) {},
         ),
