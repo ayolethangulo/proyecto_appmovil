@@ -2,13 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:parcial_1_app_movil/Login/Register_page.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
 import 'package:parcial_1_app_movil/Login/login_page.dart';
 import 'package:parcial_1_app_movil/peticiones/peticionespersona.dart';
-import 'package:parcial_1_app_movil/peticiones/peticionesrestaurante.dart';
 
 import '../Controller/connectivity.dart';
 import '../Controller/controllerAuthPersona.dart';

@@ -79,7 +79,10 @@ class _ViewMainState extends State<ViewMain> {
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.home),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ViewMain()));
+              },
             ),
             ListTile(
               title: Text(

@@ -9,7 +9,6 @@ class Personas {
   final String email;
   final String contrasena;
   final String foto;
-  // final String tipoUsuario;
 
   Personas(
       {required this.idUser,

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
-import 'package:parcial_1_app_movil/Login/login_page.dart';
-import 'package:parcial_1_app_movil/peticiones/peticionesrestaurante.dart';
 
 class ConfiguracionRestaurant extends StatefulWidget {
   ConfiguracionRestaurant({Key? key}) : super(key: key);
 
   @override
-  State<ConfiguracionRestaurant> createState() => _ConfiguracionRestaurantState();
+  State<ConfiguracionRestaurant> createState() =>
+      _ConfiguracionRestaurantState();
 }
 
 class _ConfiguracionRestaurantState extends State<ConfiguracionRestaurant> {
@@ -96,7 +95,7 @@ class _ConfiguracionRestaurantState extends State<ConfiguracionRestaurant> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  editarRestaurante(
+                  /*editarRestaurante(
                       _controlNit.text,
                       _controlNombre.text,
                       _controlDireccion.text,
@@ -105,7 +104,7 @@ class _ConfiguracionRestaurantState extends State<ConfiguracionRestaurant> {
                       _controlCorreo.text,
                       );
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                      MaterialPageRoute(builder: (context) => LoginPage()));*/
                 },
                 child: Container(
                   padding:

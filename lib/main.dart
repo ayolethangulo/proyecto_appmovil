@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:parcial_1_app_movil/pages/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:parcial_1_app_movil/peticiones/consultaspersona.dart';
+import 'package:parcial_1_app_movil/peticiones/consultasrestaurante.dart';
 
 import 'Controller/connectivity.dart';
 import 'Controller/controllerAuthPersona.dart';
@@ -14,6 +15,7 @@ void main() async {
   await Firebase.initializeApp();
   Get.put(Controllerauth());
   Get.put(ConsultasPersonaController());
+  Get.put(ConsultasRestauranteController());
 
   ConnectivityController connectivityController =
       Get.put(ConnectivityController());

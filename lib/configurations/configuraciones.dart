@@ -88,12 +88,12 @@ class _ConfiguracionUsuarioPageState extends State<ConfiguracionUsuarioPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Configuraciones de Usuario',
+          'Configuración Usuario',
           textAlign: TextAlign.left,
           style: TextStyle(
               color: Colors.white,
-              fontSize: 28,
-              fontFamily: 'cursive',
+              fontSize: 20,
+              //fontFamily: 'cursive',
               fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.red[700],
@@ -103,12 +103,12 @@ class _ConfiguracionUsuarioPageState extends State<ConfiguracionUsuarioPage> {
           Column(
             children: [
               Text(
-                'Información persona',
+                'Información personal',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 26,
-                    fontFamily: 'cursive',
+                    fontSize: 22,
+                    //fontFamily: 'cursive',
                     fontWeight: FontWeight.bold),
               ),
               Center(
