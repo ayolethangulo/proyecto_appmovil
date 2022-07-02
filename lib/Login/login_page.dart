@@ -6,6 +6,7 @@ import 'package:parcial_1_app_movil/Login/Register_page.dart';
 import 'package:parcial_1_app_movil/Login/Register_restaurant.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
 import 'package:parcial_1_app_movil/pages/viewMain.dart';
+import 'package:parcial_1_app_movil/peticiones/consultaspersona.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controladorcontra = TextEditingController();
 
   Controllerauth controluser = Get.find();
+  ConsultasPersonaController controlConsulta = Get.find();
   late ConnectivityController connectivityController;
 
   var usuario;
@@ -31,6 +33,22 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     connectivityController = Get.find<ConnectivityController>();
     consultarusuario();
+  }
+
+  void consultarusuario() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? email = prefs.getString('email');
+    final String? passw = prefs.getString('password');
+
+    if (email != null) {
+      setState(() {
+        controladorcorreo.text = email;
+        controladorcontra.text = passw!;
+        if (controluser.emailf != 'Sin Registro')
+          _inicio(controladorcorreo.text, controladorcontra.text);
+      });
+      return;
+    }
   }
 
   _inicio(theEmail, thePassword) async {
@@ -308,20 +326,5 @@ class _LoginPageState extends State<LoginPage> {
         },
       );
     });
-  }
-
-  consultarusuario() async {
-    Future<SharedPreferences> _localuser = SharedPreferences.getInstance();
-    final SharedPreferences localuser = await _localuser;
-    setState(() {
-      usuario = localuser.getString('email');
-      contrasena = localuser.getString('password');
-    });
-    if (usuario != '') {
-      if (usuario != null) {
-        controladorcorreo = TextEditingController(text: usuario);
-        controladorcontra = TextEditingController(text: contrasena);
-      }
-    }
   }
 }

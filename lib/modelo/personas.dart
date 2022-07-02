@@ -1,4 +1,5 @@
 class Personas {
+  final String idUser;
   final String identificacion;
   final String nombre;
   final String apellido;
@@ -11,7 +12,8 @@ class Personas {
   // final String tipoUsuario;
 
   Personas(
-      {required this.identificacion,
+      {required this.idUser,
+      required this.identificacion,
       required this.nombre,
       required this.apellido,
       required this.edad,
@@ -21,16 +23,46 @@ class Personas {
       required this.contrasena,
       required this.foto});
 
-  factory Personas.fromJson(Map<String, dynamic> json) {
+  factory Personas.fromMap(Map<String, dynamic> data) {
     return Personas(
-        identificacion: json['identificacion'],
-        nombre: json['nombre'],
-        apellido: json['apellido'],
-        edad: json['edad'],
-        celular: json['celular'],
-        direccion: json['direccion'],
-        email: json['email'],
-        contrasena: json['contrasena'],
-        foto: json['foto']);
+      idUser: data['id_user'] ?? '',
+      identificacion: data['identificacion'] ?? '',
+      nombre: data['nombre'] ?? '',
+      apellido: data['apellido'] ?? '',
+      edad: data['edad'] ?? '',
+      celular: data['celular'] ?? '',
+      direccion: data['direccion'] ?? '',
+      email: data['email'] ?? '',
+      contrasena: data['contrasena'] ?? '',
+      foto: data['foto'] ?? '',
+    );
   }
+
+  factory Personas.fromDoc(Map<String, dynamic> data) {
+    return Personas(
+      idUser: data['id_user'] ?? '',
+      identificacion: data['identificacion'] ?? '',
+      nombre: data['nombre'] ?? '',
+      apellido: data['apellido'] ?? '',
+      edad: data['edad'] ?? '',
+      celular: data['celular'] ?? '',
+      direccion: data['direccion'] ?? '',
+      email: data['email'] ?? '',
+      contrasena: data['contrasena'] ?? '',
+      foto: data['foto'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "id_user": idUser,
+        "identificacion": identificacion,
+        "nombre": nombre,
+        "apellido": apellido,
+        "edad": edad,
+        "celular": celular,
+        "direccion": direccion,
+        "email": email,
+        "contrasena": contrasena,
+        "foto": foto
+      };
 }

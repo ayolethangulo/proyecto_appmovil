@@ -1,12 +1,9 @@
 import 'dart:io';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:parcial_1_app_movil/Login/TextFields.dart';
 import 'package:parcial_1_app_movil/Login/login_page.dart';
-import 'package:parcial_1_app_movil/peticiones/peticionespersona.dart';
 
 import '../Controller/connectivity.dart';
 import '../Controller/controllerAuthPersona.dart';
@@ -19,30 +16,30 @@ class RegisterUser extends StatefulWidget {
 }
 
 class _RegisterUserState extends State<RegisterUser> {
-  late TextEditingController _controlIdentificacion;
+  /* late TextEditingController _controlIdentificacion;
   late TextEditingController _controlNombre;
   late TextEditingController _controlApellido;
   late TextEditingController _controlCelular;
   late TextEditingController _controlDireccion;
+  late TextEditingController _controlEdad;*/
   late TextEditingController _controlEmail;
   late TextEditingController _controlcontrasena;
   late TextEditingController _controlConfContra;
-  late TextEditingController _controlEdad;
   // var tipoUsuario = "Persona";
 
   Controllerauth controluser = Get.find();
   late ConnectivityController connectivityController;
   @override
   void initState() {
-    _controlIdentificacion = TextEditingController();
+    /* _controlIdentificacion = TextEditingController();
     _controlNombre = TextEditingController();
     _controlApellido = TextEditingController();
     _controlCelular = TextEditingController();
     _controlDireccion = TextEditingController();
+    _controlEdad = TextEditingController();*/
     _controlEmail = TextEditingController();
     _controlcontrasena = TextEditingController();
     _controlConfContra = TextEditingController();
-    _controlEdad = TextEditingController();
 
     connectivityController = Get.find<ConnectivityController>();
     super.initState();
@@ -151,7 +148,7 @@ class _RegisterUserState extends State<RegisterUser> {
               SizedBox(
                 height: 20,
               ),
-              TextFieldsNumbers(_controlIdentificacion, 'Identificación',
+              /*TextFieldsNumbers(_controlIdentificacion, 'Identificación',
                   'Identificación', Icon(Icons.person)),
               SizedBox(
                 height: 15,
@@ -184,7 +181,7 @@ class _RegisterUserState extends State<RegisterUser> {
                   Icon(Icons.directions)),
               SizedBox(
                 height: 15,
-              ),
+              ),*/
               TextFields(
                   _controlEmail, 'Email', 'Email', Icon(Icons.email_sharp)),
               SizedBox(
@@ -202,14 +199,8 @@ class _RegisterUserState extends State<RegisterUser> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (_controlApellido.text.isEmpty ||
-                      _controlCelular.text.isEmpty ||
-                      _controlConfContra.text.isEmpty ||
-                      _controlDireccion.text.isEmpty ||
-                      _controlEdad.text.isEmpty ||
+                  if (_controlConfContra.text.isEmpty ||
                       _controlEmail.text.isEmpty ||
-                      _controlIdentificacion.text.isEmpty ||
-                      _controlNombre.text.isEmpty ||
                       _controlcontrasena.text.isEmpty) {
                     showDialog(
                         context: context,
@@ -255,20 +246,6 @@ class _RegisterUserState extends State<RegisterUser> {
                           duration: Duration(seconds: 5),
                         );
                       }
-                      var persona = <String, dynamic>{
-                        'id_user': controluser.uid,
-                        'identificacion': _controlIdentificacion.text,
-                        'nombre': _controlNombre.text,
-                        'apellido': _controlApellido.text,
-                        'edad': _controlEdad.text,
-                        'celular': _controlCelular.text,
-                        'direccion': _controlDireccion.text,
-                        'email': _controlEmail.text,
-                        'contrasena': _controlcontrasena.text,
-                        'foto': '',
-                      };
-                      PeticionesPersona.crearPersona(persona, _image,
-                          'identificacion', 'Personas', 'perfilPersonas');
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: const Text(

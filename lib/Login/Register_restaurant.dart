@@ -224,7 +224,7 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
                         'contrasena': _controlcontrasena.text,
                         'foto': '',
                       };
-                      PeticionesPersona.crearPersona(restaurante, _image, 'nit',
+                      PeticionesPersona.crearPersona(restaurante, _image,
                           'Restaurantes', 'perfilRestaurantes');
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

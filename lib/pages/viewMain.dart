@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:parcial_1_app_movil/Controller/controllerAuthPersona.dart';
+import 'package:parcial_1_app_movil/Login/login_page.dart';
 import 'package:parcial_1_app_movil/configurations/configuraciones.dart';
 import 'package:parcial_1_app_movil/home_pages/Promotions.dart';
 import 'package:parcial_1_app_movil/home_pages/bookings.dart';
 import 'package:parcial_1_app_movil/home_pages/home.dart';
-import 'package:parcial_1_app_movil/peticiones/peticionespersona.dart';
+import 'package:parcial_1_app_movil/peticiones/consultaspersona.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ViewMain extends StatefulWidget {
   ViewMain({Key? key}) : super(key: key);
@@ -14,24 +18,54 @@ class ViewMain extends StatefulWidget {
 
 class _ViewMainState extends State<ViewMain> {
   late int _selectedIndex = 0;
+  Controllerauth controluser = Get.find();
+  ConsultasPersonaController controlPersona = Get.find();
+  String nombreUsuario = "Usuario";
+  String apellidoUsuario = "";
+  String fotoUsuario = "";
+
+  @override
+  void initState() {
+    consultarDatosPersona();
+    super.initState();
+  }
+
+  consultarDatosPersona() async {
+    controlPersona
+        .consultarUsuario(controluser.uid)
+        .then((value) => nombreUsuario = controlPersona.getUser![0].nombre);
+    Future<SharedPreferences> _localuser = SharedPreferences.getInstance();
+    final SharedPreferences localuser = await _localuser;
+    setState(() {
+      nombreUsuario = localuser.getString('nombre').toString();
+      apellidoUsuario = localuser.getString('apellido').toString();
+      fotoUsuario = localuser.getString('foto').toString();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    controlPersona.consultaGeneral();
+    controlPersona.consultaIndividual(controluser.uid);
     return Scaffold(
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.all(0),
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('Nombre de Usuario'),
-              accountEmail: Text('ejemplo@gmail.com'),
+              accountName: Text(nombreUsuario.toUpperCase() +
+                  " " +
+                  apellidoUsuario.toUpperCase()),
+              accountEmail: Text(controluser.emailf),
               currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 70,
-                  child: Image.asset(
-                    'image/rest.png',
-                    height: 100,
-                  )),
+                backgroundColor: Colors.white,
+                radius: 70,
+                child: Container(
+                    decoration: BoxDecoration(
+                  borderRadius: new BorderRadius.circular(70.0),
+                  image: DecorationImage(image: NetworkImage(fotoUsuario)),
+                )),
+              ),
               decoration: BoxDecoration(color: Colors.red[700]),
             ),
             ListTile(
@@ -41,7 +75,7 @@ class _ViewMainState extends State<ViewMain> {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
-                    fontFamily: 'cursive',
+                    //fontFamily: 'cursive',
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.home),
@@ -49,12 +83,12 @@ class _ViewMainState extends State<ViewMain> {
             ),
             ListTile(
               title: Text(
-                'Configuracion de la cuenta',
+                'Configuración de la cuenta',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
-                    fontFamily: 'cursive',
+                    //fontFamily: 'cursive',
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.settings),
@@ -62,8 +96,7 @@ class _ViewMainState extends State<ViewMain> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            ConfiguracionUsuarioPage(editarPersona)));
+                        builder: (context) => ConfiguracionUsuarioPage()));
               },
             ),
             ListTile(
@@ -73,11 +106,26 @@ class _ViewMainState extends State<ViewMain> {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
-                    fontFamily: 'cursive',
+                    //fontFamily: 'cursive',
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.help_outline),
               onTap: () {},
+            ),
+            ListTile(
+              title: Text(
+                'Cerrar Sesión',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                    //fontFamily: 'cursive',
+                    fontWeight: FontWeight.normal),
+              ),
+              leading: Icon(Icons.logout),
+              onTap: () {
+                _cerrarSesion();
+              },
             ),
           ],
         ),
@@ -97,7 +145,11 @@ class _ViewMainState extends State<ViewMain> {
             ),
             Row(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                IconButton(
+                    onPressed: () {
+                      setState(() {});
+                    },
+                    icon: Icon(Icons.refresh)),
                 Padding(
                   padding: EdgeInsets.all(24.0),
                   child: Icon(Icons.contact_support_outlined),
@@ -136,4 +188,11 @@ class _ViewMainState extends State<ViewMain> {
     PromotionsPage(),
     BookingsPage(),
   ];
+
+  void _cerrarSesion() {
+    controlPersona.guardarDatosPersona('', '', '', '', '', '', '');
+    controluser.logOut();
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
+  }
 }

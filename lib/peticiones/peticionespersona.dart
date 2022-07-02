@@ -1,9 +1,4 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
-import 'package:parcial_1_app_movil/modelo/personas.dart';
-import 'package:http/http.dart' as http;
 import 'package:firebase_storage/firebase_storage.dart' as fs;
 
 class PeticionesPersona {
@@ -11,19 +6,19 @@ class PeticionesPersona {
   static final FirebaseFirestore baseDatos = FirebaseFirestore.instance;
 
   static Future<void> crearPersona(Map<String, dynamic> persona, foto,
-      String identificador, nombrecoleccion, nombrecarpetaFotos) async {
+      nombrecoleccion, nombrecarpetaFotos) async {
     print(persona['foto']);
 
     var url = '';
     if (foto != null)
       url = await PeticionesPersona._loadPhoto(
-          foto, persona[identificador], nombrecarpetaFotos);
+          foto, persona['id_user'], nombrecarpetaFotos);
     print(url);
 
     persona['foto'] = url.toString();
     await baseDatos
         .collection(nombrecoleccion)
-        .doc(persona[identificador])
+        .doc(persona['id_user'])
         .set(persona)
         .catchError((e) {
       print(e);
@@ -42,59 +37,25 @@ class PeticionesPersona {
     print('URL: ' + url.toString());
     return url.toString();
   }
-}
 
-Future<List<Personas>> listaPersonas(http.Client client) async {
-  final response = await client.get(Uri.parse(
-      'https://pruebamovil2022.000webhostapp.com/proyectoapi/listar_persona.php'));
+  static Future<void> actualizarPersona(
+      String id, foto, Map<String, dynamic> persona) async {
+    print(persona['foto']);
 
-  // Usa la función compute para ejecutar parsePhotos en un isolate separado
-  return compute(pasaraListas, response.body);
-}
+    var url = '';
+    if (foto != null)
+      url = await PeticionesPersona._loadPhoto(
+          foto, persona['id_user'], 'perfilPersonas');
+    print(url);
 
-// Una función que convierte el body de la respuesta en un List<Photo>
-List<Personas> pasaraListas(String responseBody) {
-  final pasar = json.decode(responseBody).cast<Map<String, dynamic>>();
-
-  return pasar.map<Personas>((json) => Personas.fromJson(json)).toList();
-}
-
-void adicionarPersona(String identificacion, String nombre, String apellido,
-    String celular, String email, String edad, String tipoUsuario) async {
-  var url = Uri.parse(
-      'https://pruebamovil2022.000webhostapp.com/proyectoapi/add_persona.php');
-
-  await http.post(url, body: {
-    'identificacion': identificacion,
-    'nombre': nombre,
-    'apellido': apellido,
-    'celular': celular,
-    'email': email,
-    'edad': edad,
-    'tipoUsuario': tipoUsuario
-  });
-}
-
-void editarPersona(String identificacion, String nombre, String apellido,
-    String celular, String email, String edad) async {
-  var url = Uri.parse(
-      'https://pruebamovil2022.000webhostapp.com/proyectoapi/update_persona.php');
-
-  await http.post(url, body: {
-    'identificacion': identificacion,
-    'nombre': nombre,
-    'apellido': apellido,
-    'celular': celular,
-    'email': email,
-    'edad': edad
-  });
-}
-
-void eliminarPersona(id) async {
-  var url = Uri.parse(
-      'https://pruebamovil2022.000webhostapp.com/proyectoapi/delete_persona.php');
-
-  await http.post(url, body: {
-    'ideliminar': id,
-  });
+    persona['foto'] = url.toString();
+    await baseDatos
+        .collection('Personas')
+        .doc(id)
+        .update(persona)
+        .catchError((e) {
+      print(e);
+    });
+    //return true;
+  }
 }
