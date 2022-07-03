@@ -38,24 +38,23 @@ class PeticionesPersona {
     return url.toString();
   }
 
-  static Future<void> actualizarPersona(
-      String id, foto, Map<String, dynamic> persona) async {
+  static Future<void> actualizarPersona(String id, foto,
+      Map<String, dynamic> persona, nombrecoleccion, nombrecarpetaFotos) async {
     print(persona['foto']);
 
     var url = '';
     if (foto != null)
       url = await PeticionesPersona._loadPhoto(
-          foto, persona['id_user'], 'perfilPersonas');
+          foto, persona['id_user'], nombrecarpetaFotos);
     print(url);
 
     persona['foto'] = url.toString();
     await baseDatos
-        .collection('Personas')
+        .collection(nombrecoleccion)
         .doc(id)
         .update(persona)
         .catchError((e) {
       print(e);
     });
-    //return true;
   }
 }

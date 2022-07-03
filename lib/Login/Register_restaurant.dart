@@ -23,6 +23,7 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
   late TextEditingController _controlDireccion;
   late TextEditingController _controlTelefono;
   late TextEditingController _controlCelular;
+  late TextEditingController _controlDescripcion;
   late TextEditingController _controlCorreo;
   late TextEditingController _controlcontrasena;
   late TextEditingController _controlConfContra;
@@ -37,8 +38,8 @@ class _RegisterRestaurantState extends State<RegisterRestaurant> {
     _controlDireccion = TextEditingController();
     _controlTelefono = TextEditingController();
     _controlCelular = TextEditingController();
+    // _controlDescripcion = Text
     _controlCorreo = TextEditingController();
-
     _controlcontrasena = TextEditingController();
     _controlConfContra = TextEditingController();
     connectivityController = Get.find<ConnectivityController>();

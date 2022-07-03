@@ -240,7 +240,8 @@ class _ConfiguracionUsuarioPageState extends State<ConfiguracionUsuarioPage> {
   }
 
   void _modificarPersona(Map<String, dynamic> persona) {
-    PeticionesPersona.actualizarPersona(controluser.uid, _image, persona);
+    PeticionesPersona.actualizarPersona(
+        controluser.uid, _image, persona, 'Personas', 'perfilPersonas');
     Get.snackbar(
       "Actualizar",
       'Datos Actualizados',

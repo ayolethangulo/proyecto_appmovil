@@ -58,7 +58,8 @@ class ConsultasRestauranteController extends GetxController {
           getRes![0].direccion,
           getRes![0].foto,
           getRes![0].telefono,
-          getRes![0].celular);
+          getRes![0].celular,
+          getRes![0].descripcion);
     });
   }
 
@@ -77,14 +78,15 @@ class ConsultasRestauranteController extends GetxController {
   }
 
   Future<void> guardarDatosRestaurante(
-      nit, nombre, direccion, foto, telefono, celular) async {
+      nit, nombre, direccion, foto, telefono, celular, descripcion) async {
     Future<SharedPreferences> _localRes = SharedPreferences.getInstance();
     final SharedPreferences localRes = await _localRes;
     localRes.setString('nit', nit);
-    localRes.setString('nombre', nombre);
-    localRes.setString('direccion', direccion);
-    localRes.setString('foto', foto);
+    localRes.setString('nombreR', nombre);
+    localRes.setString('direccionR', direccion);
+    localRes.setString('fotoR', foto);
     localRes.setString('telefono', telefono);
-    localRes.setString('celular', celular);
+    localRes.setString('celularR', celular);
+    localRes.setString('descripcion', descripcion);
   }
 }

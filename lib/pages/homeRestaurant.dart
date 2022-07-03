@@ -1,6 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:parcial_1_app_movil/Controller/controllerAuthPersona.dart';
+import 'package:parcial_1_app_movil/Login/login_page.dart';
+import 'package:parcial_1_app_movil/configurations/configuracionRest.dart';
+import 'package:parcial_1_app_movil/peticiones/consultasrestaurante.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeRestaurant extends StatefulWidget {
   HomeRestaurant({Key? key}) : super(key: key);
@@ -10,6 +14,29 @@ class HomeRestaurant extends StatefulWidget {
 }
 
 class _HomeRestaurantState extends State<HomeRestaurant> {
+  Controllerauth controluser = Get.find();
+  ConsultasRestauranteController controlRestaurante = Get.find();
+  String nombreUsuario = "Usuario";
+  String fotoUsuario = "";
+
+  @override
+  void initState() {
+    consultarDatosPersona();
+    super.initState();
+  }
+
+  consultarDatosPersona() async {
+    controlRestaurante
+        .consultarRestaurante(controluser.uid)
+        .then((value) => nombreUsuario = controlRestaurante.getRes![0].nombre);
+    Future<SharedPreferences> _localuser = SharedPreferences.getInstance();
+    final SharedPreferences localuser = await _localuser;
+    setState(() {
+      nombreUsuario = localuser.getString('nombreR').toString();
+      fotoUsuario = localuser.getString('fotoR').toString();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +45,7 @@ class _HomeRestaurantState extends State<HomeRestaurant> {
         title: Row(
           children: [
             Text(
-              'Restaurante donde jj',
+              nombreUsuario.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                   color: Colors.white,
@@ -33,15 +60,17 @@ class _HomeRestaurantState extends State<HomeRestaurant> {
           padding: EdgeInsets.all(0),
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('Nombre de Usuario'),
-              accountEmail: Text('ejemplo@gmail.com'),
+              accountName: Text(nombreUsuario),
+              accountEmail: Text(controluser.emailf),
               currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 70,
-                  child: Image.asset(
-                    'image/rest.png',
-                    height: 100,
-                  )),
+                backgroundColor: Colors.white,
+                radius: 70,
+                child: Container(
+                    decoration: BoxDecoration(
+                  borderRadius: new BorderRadius.circular(70.0),
+                  image: DecorationImage(image: NetworkImage(fotoUsuario)),
+                )),
+              ),
               decoration: BoxDecoration(color: Colors.red[700]),
             ),
             ListTile(
@@ -51,24 +80,32 @@ class _HomeRestaurantState extends State<HomeRestaurant> {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
-                    fontFamily: 'cursive',
+                    //fontFamily: 'cursive',
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.home),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomeRestaurant()));
+              },
             ),
             ListTile(
               title: Text(
-                'Configuracion de la cuenta',
+                'Configuración de la cuenta',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
-                    fontFamily: 'cursive',
+                    //fontFamily: 'cursive',
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.settings),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ConfiguracionRestaurant()));
+              },
             ),
             ListTile(
               title: Text(
@@ -77,11 +114,26 @@ class _HomeRestaurantState extends State<HomeRestaurant> {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
-                    fontFamily: 'cursive',
+                    //fontFamily: 'cursive',
                     fontWeight: FontWeight.normal),
               ),
               leading: Icon(Icons.help_outline),
               onTap: () {},
+            ),
+            ListTile(
+              title: Text(
+                'Cerrar Sesión',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                    //fontFamily: 'cursive',
+                    fontWeight: FontWeight.normal),
+              ),
+              leading: Icon(Icons.logout),
+              onTap: () {
+                _cerrarSesion();
+              },
             ),
           ],
         ),
@@ -191,5 +243,12 @@ class _HomeRestaurantState extends State<HomeRestaurant> {
         ),
       ],
     ));
+  }
+
+  void _cerrarSesion() {
+    controlRestaurante.guardarDatosRestaurante('', '', '', '', '', '', '');
+    controluser.logOut();
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

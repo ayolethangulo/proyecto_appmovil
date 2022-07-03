@@ -16,27 +16,14 @@ class RegisterUser extends StatefulWidget {
 }
 
 class _RegisterUserState extends State<RegisterUser> {
-  /* late TextEditingController _controlIdentificacion;
-  late TextEditingController _controlNombre;
-  late TextEditingController _controlApellido;
-  late TextEditingController _controlCelular;
-  late TextEditingController _controlDireccion;
-  late TextEditingController _controlEdad;*/
   late TextEditingController _controlEmail;
   late TextEditingController _controlcontrasena;
   late TextEditingController _controlConfContra;
-  // var tipoUsuario = "Persona";
 
   Controllerauth controluser = Get.find();
   late ConnectivityController connectivityController;
   @override
   void initState() {
-    /* _controlIdentificacion = TextEditingController();
-    _controlNombre = TextEditingController();
-    _controlApellido = TextEditingController();
-    _controlCelular = TextEditingController();
-    _controlDireccion = TextEditingController();
-    _controlEdad = TextEditingController();*/
     _controlEmail = TextEditingController();
     _controlcontrasena = TextEditingController();
     _controlConfContra = TextEditingController();
@@ -148,40 +135,6 @@ class _RegisterUserState extends State<RegisterUser> {
               SizedBox(
                 height: 20,
               ),
-              /*TextFieldsNumbers(_controlIdentificacion, 'Identificación',
-                  'Identificación', Icon(Icons.person)),
-              SizedBox(
-                height: 15,
-              ),
-              TextFields(_controlNombre, 'Nombre', 'Nombre',
-                  Icon(Icons.text_fields_sharp)),
-              SizedBox(
-                height: 15,
-              ),
-              TextFields(_controlApellido, 'Apellido', 'Apellido',
-                  Icon(Icons.text_fields_sharp)),
-              SizedBox(
-                height: 15,
-              ),
-              TextFieldsNumbers(
-                _controlEdad,
-                'Edad',
-                'Edad',
-                Icon(Icons.confirmation_num_rounded),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              TextFieldsNumbers(_controlCelular, 'Celular', 'Celular',
-                  Icon(Icons.phone_android)),
-              SizedBox(
-                height: 15,
-              ),
-              TextFields(_controlDireccion, 'Direccion', 'Direccion',
-                  Icon(Icons.directions)),
-              SizedBox(
-                height: 15,
-              ),*/
               TextFields(
                   _controlEmail, 'Email', 'Email', Icon(Icons.email_sharp)),
               SizedBox(
